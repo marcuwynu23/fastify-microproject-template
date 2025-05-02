@@ -1,0 +1,35 @@
+{
+  "name": "fastify-microproject-template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./build/cjs/index.js",
+  "module": "./build/esm/index.js",
+  "types": "./build/types/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./build/cjs/index.js",
+      "import": "./build/esm/index.js"
+    }
+  },
+  "scripts": {
+    "dev": "tsx --no-cache --watch src/index.ts",
+    "obfuscate": "javascript-obfuscator build --output build",
+    "build:cjs": "tsc --outDir build/cjs --module CommonJS",
+    "build:esm": "tsc --outDir build/esm --module ESNext",
+    "build": "npm run build:cjs && npm run build:esm && npm run obfuscate"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@types/node": "^22.15.3",
+    "javascript-obfuscator": "^4.1.1",
+    "tsx": "^4.19.4",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "fastify": "^5.3.2",
+    "process": "^0.11.10"
+  }
+}
