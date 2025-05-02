@@ -1,0 +1,21 @@
+{
+  "compact": true,
+  "controlFlowFlattening": true,
+  "controlFlowFlatteningThreshold": 0.85,
+  "deadCodeInjection": true,
+  "deadCodeInjectionThreshold": 0.3,
+  "stringArray": true,
+  "stringArrayEncoding": ["base64", "rc4"],
+  "stringArrayThreshold": 0.9,
+  "stringArrayIndexShift": true,
+  "renameGlobals": true,
+  "renameProperties": true,
+  "renamePropertiesMode": "unsafe",
+  "selfDefending": true,
+  "debugProtection": true,
+  "debugProtectionInterval": 500,
+  "disableConsoleOutput": true,
+  "numbersToExpressions": true,
+  "target": "node",
+  "ignoreImport": true
+}
