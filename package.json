@@ -14,9 +14,9 @@
   "scripts": {
     "dev": "tsx --no-cache --watch src/index.ts",
     "obfuscate": "javascript-obfuscator build --output build",
-    "build:cjs": "tsc --outDir build/cjs --module CommonJS",
-    "build:esm": "tsc --outDir build/esm --module ESNext",
-    "build": "npm run build:cjs && npm run build:esm && npm run obfuscate"
+    "bundle": "node esbuild.config.js && npm run obfuscate",
+    "prisma:import": "set NODE_OPTIONS=--no-deprecation && npx  prisma-import  -s \"prisma/base.prisma\" -s \"prisma/models/*.prisma\" -o prisma/schema.prisma -f",
+    "prisma:generate": "npm run prisma:import && prisma generate"
   },
   "keywords": [],
   "author": "",
@@ -24,11 +24,15 @@
   "type": "commonjs",
   "devDependencies": {
     "@types/node": "^22.15.3",
+    "esbuild-plugin-alias": "^0.2.1",
     "javascript-obfuscator": "^4.1.1",
+    "prisma": "^6.13.0",
+    "prisma-import": "^1.0.5",
     "tsx": "^4.19.4",
     "typescript": "^5.8.3"
   },
   "dependencies": {
+    "@prisma/client": "^6.13.0",
     "fastify": "^5.3.2",
     "process": "^0.11.10"
   }

@@ -1,10 +1,11 @@
-import Fastify, { FastifyInstance } from "fastify";
+import Fastify, {FastifyInstance} from "fastify";
 import process from "process";
 import fs from "fs";
-import route from "./routes/route";
+import route from "@/routes/route";
+import userRoutes from "@/routes/user.route";
 
 // Create a log stream for the file
-const logFileStream = fs.createWriteStream("./logs/app.log", { flags: "a" });
+const logFileStream = fs.createWriteStream("./logs/app.log", {flags: "a"});
 
 // Create the Fastify instance with custom logger configuration
 const fastify: FastifyInstance = Fastify({
@@ -17,11 +18,12 @@ const fastify: FastifyInstance = Fastify({
 
 // Register the routes
 fastify.register(route);
+fastify.register(userRoutes, {prefix: "/api/users"});
 
 // Start the server
 const start = async () => {
   try {
-    await fastify.listen({ port: 4000 });
+    await fastify.listen({port: 4000});
     fastify.log.info("Server running at http://localhost:4000");
   } catch (err) {
     fastify.log.error(err);
