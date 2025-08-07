@@ -62,7 +62,7 @@ npm run dev
 For production mode (after building the project):
 
 ```bash
-npm run build
+npm run bundle
 npm run start
 ```
 
@@ -79,7 +79,7 @@ http://localhost:3000/documentation
 To build the project for production:
 
 ```bash
-npm run build
+npm run bundle
 ```
 
 This will transpile the TypeScript code to JavaScript.
@@ -107,7 +107,7 @@ The directory structure of the project is as follows:
 ## Available Scripts
 
 - **`npm run dev`**: Starts the Fastify server in development mode with hot-reloading.
-- **`npm run build`**: Transpiles the TypeScript code to JavaScript for production.
+- **`npm run bundle`**: Transpiles the TypeScript code to JavaScript for production.
 - **`npm run start`**: Starts the Fastify server in production mode.
 - **`npm run lint`**: Runs ESLint on the project to check for code quality.
 - **`npm run format`**: Formats the codebase using Prettier.
