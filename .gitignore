@@ -1,3 +1,6 @@
 build/
 node_modules/
 logs/
+/src/config/prisma
+bundled/
+.env
